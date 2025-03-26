@@ -64,3 +64,21 @@ export function frog_river_one(X: number, A: number[]): number {
 
   return -1;
 }
+
+// Optimal Solution: Using a Set (O(N) Time, O(X) Space)
+// We can efficiently solve this problem using a Set to track unique leaf positions that have fallen:
+//
+// Use a Set (positions)
+// This keeps track of which positions have leaves.
+// We need all positions 1 to X to be covered.
+// Iterate Through Array (O(N))
+// Add A[K] to positions at each second K.
+// When positions.size === X, return K (earliest time all positions are covered).
+// Return -1 If Incomplete
+// If loop completes without positions.size === X, return -1.
+
+// Why This Works Efficiently
+// Uses a Set (O(1) Insertions)
+// Checking and inserting in a Set is O(1), making it efficient.
+// Single Pass Through Array (O(N))
+// We iterate once (O(N)) and check conditions in constant time.

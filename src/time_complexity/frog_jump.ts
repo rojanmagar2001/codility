@@ -28,3 +28,9 @@
 export function frog_jump(X: number, Y: number, D: number): number {
   return Math.ceil((Y - X) / D);
 }
+
+// Time & Space Complexity
+// ✅ Time Complexity: O(1) (constant time calculation)
+// ✅ Space Complexity: O(1) (no extra storage)
+//
+// This is the most efficient way to solve the problem! 🚀

@@ -33,8 +33,14 @@ export function odd_element(A: number[]): number {
   let unpaired = 0;
 
   for (const num of A) {
-    unpaired ^= num;
+    unpaired ^= num; // same number cancel outs & (XOR with 0 keeps the number)
   }
 
   return unpaired;
 }
+
+// Time & Space Complexity
+// ✅ Time Complexity: O(N) (single loop through the array)
+// ✅ Space Complexity: O(1) (constant space usage)
+//
+// This is the optimal solution and efficiently finds the unpaired element! 🚀

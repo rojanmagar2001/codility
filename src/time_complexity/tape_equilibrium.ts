@@ -54,3 +54,25 @@ export function tape_equilibrium(A: number[]): number {
 
   return minDiff;
 }
+
+// Optimal Solution: Prefix Sum Approach (O(N) Time, O(1) Space)
+// Instead of recalculating sums for each split P, we use prefix sums efficiently:
+//
+// Compute Total Sum of Array (totalSum)
+// This is the sum of all elements in A.
+// Iterate and Track leftSum & rightSum
+// Start with leftSum = 0, then add elements one by one.
+// rightSum = totalSum - leftSum
+// Compute |leftSum - rightSum| at each step.
+// Keep Track of Minimum Difference
+// Update minDiff whenever a new smaller difference is found.
+
+// Why This Works Efficiently
+// Total Sum Calculation (O(N))
+// The first pass computes totalSum in O(N).
+// Single Pass for Differences (O(N))
+// We iterate once (O(N)) while keeping track of leftSum and rightSum.
+// ✅ Time Complexity: O(N) (Single loop through A)
+// ✅ Space Complexity: O(1) (Only a few variables used)
+//
+// This approach is optimal for large inputs (N ≤ 100,000). 🚀

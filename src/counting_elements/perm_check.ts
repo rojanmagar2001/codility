@@ -55,3 +55,7 @@ export function perm_check(A: number[]): number {
 
   return set.size === N ? 1 : 0;
 }
+
+// Why This is Efficient
+// Time Complexity: O(N) (Single loop, Set operations are O(1))
+// Space Complexity: O(N) (Stores up to N elements in Set)

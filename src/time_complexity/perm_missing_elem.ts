@@ -21,3 +21,23 @@
 // N is an integer within the range [0..100,000];
 // the elements of A are all distinct;
 // each element of array A is an integer within the range [1..(N + 1)].
+
+export function perm_missing_elem(A: number[]): number {
+  const N = A.length;
+
+  const expectedSum = ((N + 1) * (N + 1 + 1)) / 2;
+  const actualSum = A.reduce((acc, curr) => acc + curr, 0);
+
+  return expectedSum - actualSum;
+}
+
+// Why This Works
+// Formula for Sum of First N+1 Numbers
+// Computes what the total sum should be if no element were missing.
+// Subtract Actual Sum
+// The difference gives the missing number.
+// Time & Space Complexity
+// ✅ Time Complexity: O(N) (single pass to compute sum)
+// ✅ Space Complexity: O(1) (only a few variables used)
+//
+// This is the most efficient way to find the missing number! 🚀
