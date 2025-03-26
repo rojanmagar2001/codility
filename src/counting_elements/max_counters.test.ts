@@ -1,4 +1,4 @@
-import { perm_check } from "./perm_check";
+import { max_counters } from "./max_counters";
 
 // Result array should be returned as an array of integers.
 // N = 5
@@ -12,12 +12,9 @@ import { perm_check } from "./perm_check";
 //     A[5] = 4
 //     A[6] = 4
 // the function should return [3, 2, 2, 4, 2], as explained above.
-describe("Frog River One Test", () => {
-  test("Returns 1", () => {
-    expect(perm_check([4, 1, 3, 2])).toEqual(1);
-  });
 
-  test("Returns 0", () => {
-    expect(perm_check([4, 1, 3])).toEqual(0);
+describe("Max Counters Test", () => {
+  test("Returns 1", () => {
+    expect(max_counters(5, [3, 4, 4, 6, 1, 4, 4])).toEqual([3, 2, 2, 4, 2]);
   });
 });
