@@ -44,7 +44,7 @@ export function tape_equilibrium(A: number[]): number {
   let leftSum = 0;
   let minDiff = Infinity;
 
-  for (let P = 0; P < A.length + 1; P++) {
+  for (let P = 0; P < A.length - 1; P++) {
     leftSum += A[P];
     const rightSum = totalSum - leftSum;
     const diff = Math.abs(leftSum - rightSum);
