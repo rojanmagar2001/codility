@@ -46,13 +46,22 @@ export function triangle(A: number[]): number {
   return 0;
 }
 
-// To solve this problem efficiently, we can take advantage of the properties of a triangle and the fact that the sides of a triangle must satisfy the triangle inequality.
+// To solve this problem efficiently, we can take advantage of the properties of a
+// triangle and the fact that the sides of a triangle must satisfy the triangle
+// inequality.
 //
 // Approach
-// Sorting the Array: By sorting the array, we can reduce the problem to simply checking consecutive triplets in the sorted array. This is because once the array is sorted, the condition A[P] + A[Q] > A[R] is guaranteed for P < Q < R if the array is sorted.
-// After sorting, we need to check whether for any three consecutive elements A[i], A[i+1], and A[i+2], the sum of the two smaller elements is greater than the largest element.
-// Why Sorting Helps: In a sorted array, checking the triangular condition becomes simpler:
-// If A[i] + A[i+1] > A[i+2] is true for any i, then the triplet (A[i], A[i+1], A[i+2]) forms a valid triangle.
+// Sorting the Array: By sorting the array, we can reduce the problem to simply
+// checking consecutive triplets in the sorted array. This is because once the array
+// is sorted, the condition A[P] + A[Q] > A[R] is guaranteed for P < Q < R if the
+// array is sorted.
+// After sorting, we need to check whether for any three consecutive elements A[i],
+// A[i+1], and A[i+2], the sum of the two smaller elements is greater than the
+// largest element.
+// Why Sorting Helps: In a sorted array, checking the triangular condition becomes
+// simpler:
+// If A[i] + A[i+1] > A[i+2] is true for any i, then
+// the triplet (A[i], A[i+1], A[i+2]) forms a valid triangle.
 // Time Complexity:
 // Sorting the array: O(N log N)
 // Checking consecutive triplets: O(N)
