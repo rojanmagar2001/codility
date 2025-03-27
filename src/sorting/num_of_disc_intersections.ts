@@ -34,5 +34,49 @@
 // each element of array A is an integer within the range [0..2,147,483,647].
 
 export function num_of_disc_intersection(A: number[]): number {
-  throw new Error("Not implemented");
+  const MAX_INTERSECTIONS_LIMIT = 10_000_000;
+  const N = A.length;
+
+  if (N === 0) return 0;
+
+  // Creating arrays to track disc start and end points.
+  const starts: number[] = new Array(N).fill(0);
+  const ends: number[] = new Array(N).fill(0);
+
+  // Calculating start and end points for each disc.
+  for (let i = 0; i < N; i++) {
+    const left = Math.max(0, i - A[i]);
+    const right = Math.min(N - 1, i + A[i]);
+
+    starts[left]++;
+    ends[right]++;
+  }
+
+  let activeDiscs = 0;
+  let intersections = 0;
+
+  // Count intersections by sweeping through the points.
+  for (let i = 0; i < N; i++) {
+    // Add the number of discs that start at this point
+    if (starts[i] > 0) {
+      // Each existing active disc will intersect with the new discs starting here
+      intersections += activeDiscs * starts[i];
+
+      // Additional intersections between new discs
+      intersections += (starts[i] * (starts[i] - 1)) / 2;
+
+      // Update active discs
+      activeDiscs += starts[i];
+    }
+
+    // Remove discs that end at this point
+    activeDiscs -= ends[i];
+
+    // Check if the intersections exceeds 10 million
+    if (intersections > MAX_INTERSECTIONS_LIMIT) {
+      return -1;
+    }
+  }
+
+  return intersections;
 }

@@ -46,3 +46,23 @@ export function rotate_array(A: number[], K: number): number[] {
 
   return [...A.slice(-K), ...A.slice(0, N - K)];
 }
+
+// Explanation:
+//
+//     Handle edge case: If the array is empty, return it immediately.
+//
+//     Optimize rotations: Since rotating an array NN times results in the same array, we compute K % N to reduce unnecessary rotations.
+//
+//     Perform rotation efficiently:
+//
+//         Use A.slice(-K) to get the last KK elements.
+//
+//         Use A.slice(0, N - K) to get the first N−KN−K elements.
+//
+//         Concatenate both parts to form the rotated array.
+//
+// Complexity:
+//
+//     Time Complexity: O(N)O(N) (slicing and concatenation are linear).
+//
+//     Space Complexity: O(N)O(N) (a new array is created).
